@@ -20,9 +20,5 @@ var typingUser = [];
 
 var TYPE_CHECK_TIME = 10000;
 
-$('#chatBox').hide();
-
 $('#chatStart').click(function() {
-    $('#chatStart').hide();
-    $('#chatBox').show();
 });
