@@ -1,4 +1,4 @@
-@extends('layouts.trytara')
+@extends('layouts.main')
 @section('content')
 <div class="jumbotron">
     <h1>
@@ -9,7 +9,6 @@
     </p>
     <a class="btn btn-primary" href="">Chat</a>
 </div>
-
 
 <div class="container">
     <div class="row">

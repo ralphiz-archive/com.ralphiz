@@ -1,14 +1,15 @@
-@extends('layouts.trytara')
+@extends('layouts.main')
 @section('content')
 <div class="jumbotron">
     <h1>
         SendBird
     </h1>
     <p class="lead">
-        SendBird Test
+        Description: A SendBird chat application for Gradberry/TryTara.
     </p>
-    <button class="btn btn-primary" id="chatStart">Chat</button>
 </div>
+
+<button class="btn btn-primary" id="chatStart">Start Chat</button>
 
 <div class="container" id="chatBox">
     <div class="row">

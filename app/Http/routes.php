@@ -27,6 +27,9 @@ Route::get('/', ['as' => 'home', function () {
 Route::get('/about', ['as' => 'about', function () {
     return view('pages.about');
 }]);
+Route::get('/projects', ['as' => 'projects', function () {
+    return view('pages.projects');
+}]);
 Route::get('/contact', ['as' => 'contact', function () {
     return view('pages.contact');
 }]);

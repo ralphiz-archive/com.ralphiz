@@ -5,6 +5,7 @@
             ralphiz.com
         </title>
         <link rel="stylesheet" type="text/css" href="/css/app.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
         @yield('styles')
     </head>
     <body>
@@ -22,7 +23,7 @@
                         <span class="icon-bar">
                         </span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         ralphiz.com
                     </a>
                 </div>
@@ -39,9 +40,31 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('projects') }}">
+                                Projects
+                            </a>
+                        </li>
+                        <li>
                             <a href={{ route('contact' ) }}>
                                 Contact
                             </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right social">    
+                        <li>
+                            <a href="https://facebook.com/ralphcarletcacho"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/ralphiz"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/ralphcacho"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ralphiz"><i class="fa fa-github-square fa-lg" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/+RalphCacho/about"><i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i></a>
                         </li>
                     </ul>
                 </div>
