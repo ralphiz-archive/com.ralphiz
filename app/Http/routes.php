@@ -16,8 +16,8 @@ Route::get('/chat', ['as' => 'chat', function() {
     return view('chat.sendbird');
 }]);
 
-Route::get('/chat2', ['as' => 'chat', function() {
-    return view('chat.sendbird2');
+Route::get('/minesweeper', ['as' => 'chat', function() {
+    return view('projects.minesweeper');
 }]);
 
 // Static pages

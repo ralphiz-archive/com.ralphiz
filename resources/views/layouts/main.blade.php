@@ -76,6 +76,7 @@
             @yield('content')
         </div>
 
+        <script src="/js/SendBird.min.js"></script>
         <script src="/js/app.js"></script>
         <script src="/js/chat.js"></script>
         @yield('scripts')
