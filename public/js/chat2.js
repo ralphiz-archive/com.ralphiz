@@ -19,9 +19,9 @@ var TYPE_CHECK_TIME = 10000;
 /***********************************************
  *          // SendBird Box 1 Settings
  **********************************************/
-function startSendBird1(guestId1, nickName1) {
-    sendbird1 = SB.getInstance();
-    sendbird1.init({
+function startSendBird2(guestId1, nickName1) {
+    sendbird2 = SB.getInstance();
+    sendbird2.init({
         "app_id": appId,
         "guest_id": guestId1,
         "user_name": nickName1,
@@ -30,8 +30,8 @@ function startSendBird1(guestId1, nickName1) {
         "successFunc": function(data) {
             //$('.init-check').hide();
             //getMessagingChannelList();
-            sendbird1.connect();
-            sendbird1.getUserInfo(function(data) {
+            sendbird2.connect();
+            sendbird2.getUserInfo(function(data) {
                 console.log(data);
             });
         },
@@ -45,43 +45,43 @@ function startSendBird1(guestId1, nickName1) {
             window.location.href = '/';
         }
     });
-    sendbird1.events.onMessageReceived = function(obj) {
-        $('#chat1-list').append(newMessage(obj));
+    sendbird2.events.onMessageReceived = function(obj) {
+        $('#chat2-list').append(newMessage(obj));
         //scrollBottom();
     };
-    sendbird1.events.onSystemMessageReceived = function(obj) {
+    sendbird2.events.onSystemMessageReceived = function(obj) {
         console.log(obj);
         // do something...
     };
-    sendbird1.events.onFileMessageReceived = function(obj) {
+    sendbird2.events.onFileMessageReceived = function(obj) {
         console.log(obj);
         // do something...
     };
-    sendbird1.events.onBroadcastMessageReceived = function(obj) {
+    sendbird2.events.onBroadcastMessageReceived = function(obj) {
         console.log(obj);
         // do something...
     };
-    sendbird1.events.onMessagingChannelUpdateReceived = function(obj) {
+    sendbird2.events.onMessagingChannelUpdateReceived = function(obj) {
         console.log(obj);
         // do something...
     };
-    sendbird1.events.onTypeStartReceived = function(obj) {
+    sendbird2.events.onTypeStartReceived = function(obj) {
         console.log(obj);
         // do something...
     }
-    sendbird1.events.onTypeEndReceived = function(obj) {
+    sendbird2.events.onTypeEndReceived = function(obj) {
         console.log(obj);
         // do something...
     }
-    sendbird1.events.onReadReceived = function(obj) {
+    sendbird2.events.onReadReceived = function(obj) {
         console.log(obj);
         // do something...
     };
-    sendbird1.events.onMessageDelivery = function(obj) {
+    sendbird2.events.onMessageDelivery = function(obj) {
         console.log(obj);
         // do something...
     };
-    sendbird1.events.onBanReceived = function(obj) {
+    sendbird2.events.onBanReceived = function(obj) {
         console.log(obj);
         // do something...
     };
@@ -104,10 +104,10 @@ function newMessage(obj) {
  **********************************************/
 function startMessaging() {
     var guestIds = ['1', '2'];
-    sendbird1.startMessaging(guestIds, {
+    sendbird2.startMessaging(guestIds, {
         "successFunc": function(data) {
             console.log(data);
-            sendbird1.connect({
+            sendbird2.connect({
                 "successFunc": function(data) {
                     console.log(data);
                     // do something
@@ -125,22 +125,17 @@ function startMessaging() {
         }
     });
 }
-
-function sendMessage1() {
-    var messageToSend = $('#btn-input-chat1').val();
-    sendbird1.message(messageToSend);
-}
 /***********************************************
  *          // END Messaging functions
  **********************************************/
-function init1() {
-    guestId1 = "1";
-    nickname1 = $('#user_nickname1').val();
-    startSendBird1(guestId1, nickname1);
-    $('.chat1-status').html(" (Online as '" + nickname1 + "')");
+function init2() {
+    guestId2 = "2";
+    nickname2 = $('#user_nickname2').val();
+    startSendBird2(guestId2, nickname2);
+    $('.chat2-status').html(" (Online as '" + nickname2 + "')");
 }
 $(document).ready(function() {
-    $('#btn_start1').click(function() {
-        init1();
+    $('#btn_start2').click(function() {
+        init2();
     });
 });
