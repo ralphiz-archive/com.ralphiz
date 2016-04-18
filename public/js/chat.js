@@ -94,7 +94,9 @@ function startSendBird1(guestId1, nickName1) {
  **********************************************/
 function newMessage(obj) {
     var msgList = '';
+    console.log("===");
     console.log(obj);
+    console.log("===");
 }
 /***********************************************
  *          // END Common functions
@@ -102,7 +104,7 @@ function newMessage(obj) {
 /***********************************************
  *          // Messaging functions
  **********************************************/
-function startMessaging() {
+function startMessagingchat1() {
     var guestIds = ['1', '2'];
     sendbird1.startMessaging(guestIds, {
         "successFunc": function(data) {

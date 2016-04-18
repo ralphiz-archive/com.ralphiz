@@ -46,7 +46,7 @@ function startSendBird2(guestId1, nickName1) {
         }
     });
     sendbird2.events.onMessageReceived = function(obj) {
-        $('#chat2-list').append(newMessage(obj));
+        $('#chat2-list').append(newMessage2(obj));
         //scrollBottom();
     };
     sendbird2.events.onSystemMessageReceived = function(obj) {
@@ -92,9 +92,9 @@ function startSendBird2(guestId1, nickName1) {
 /***********************************************
  *          // Common functions
  **********************************************/
-function newMessage(obj) {
+function newMessage2(obj) {
     var msgList = '';
-    console.log(obj);
+    $('#chat2-list').append('<li>'+obj['message']+'</li>');
 }
 /***********************************************
  *          // END Common functions
@@ -102,13 +102,29 @@ function newMessage(obj) {
 /***********************************************
  *          // Messaging functions
  **********************************************/
-function startMessaging() {
+function startMessagingchat2() {
     var guestIds = ['1', '2'];
     sendbird2.startMessaging(guestIds, {
         "successFunc": function(data) {
             console.log(data);
             sendbird2.connect({
                 "successFunc": function(data) {
+                    sendbird2.getMessageLoadMore({
+                        "limit": 20,
+                        "successFunc": function(data) {
+                            var pastMessages = data["messages"];
+                            $.each(pastMessages.reverse(), function(index, msg) {
+                                console.log("-Message-");
+                                console.log(msg);
+                                console.log("-Message-");
+                                // $('#chat2-list').append(msg);
+                            });
+                        },
+                        "errorFunc": function(status, error) {
+                            console.log(status, error);
+                            // do something
+                        }
+                    });
                     console.log(data);
                     // do something
                 },

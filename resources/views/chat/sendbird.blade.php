@@ -25,7 +25,10 @@
         <button type="button" class="btn btn-default" id="btn_start2">Initialize</button>
     </div>
     <div class="row">
-        <button class="btn btn-success" onclick="startMessaging()">Start Chat Demo</button>
+        <button class="btn btn-success" onclick="startMessagingchat1()">Connect Chat 1</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-success" onclick="startMessagingchat2()">Connect Chat 2</button>
     </div>
 </div>
 
@@ -108,7 +111,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <ul class="chat">
+                    <ul id="chat2-list" class="chat">
                         
                     </ul>
                 </div>
