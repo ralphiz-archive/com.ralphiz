@@ -16,15 +16,15 @@ var memberList = [];
 var isTyping = false;
 var typingUser = [];
 var TYPE_CHECK_TIME = 10000;
+var sendbird2 = SB.getInstance();
 /***********************************************
  *          // SendBird Box 1 Settings
  **********************************************/
-function startSendBird2(guestId1, nickName1) {
-    sendbird2 = SB.getInstance();
+function startSendBird2(guestId2, nickName2) {
     sendbird2.init({
         "app_id": appId,
-        "guest_id": guestId1,
-        "user_name": nickName1,
+        "guest_id": guestId2,
+        "user_name": nickName2,
         "image_url": '',
         "access_token": '',
         "successFunc": function(data) {
@@ -94,7 +94,7 @@ function startSendBird2(guestId1, nickName1) {
  **********************************************/
 function newMessage2(obj) {
     var msgList = '';
-    $('#chat2-list').append('<li>'+obj['message']+'</li>');
+    $('#chat2-list').append('<li>' + obj['message'] + '</li>');
 }
 /***********************************************
  *          // END Common functions
@@ -110,15 +110,15 @@ function startMessagingchat2() {
             sendbird2.connect({
                 "successFunc": function(data) {
                     sendbird2.getMessageLoadMore({
-                        "limit": 20,
                         "successFunc": function(data) {
                             var pastMessages = data["messages"];
+                            var msgList = '';
                             $.each(pastMessages.reverse(), function(index, msg) {
-                                console.log("-Message-");
-                                console.log(msg);
-                                console.log("-Message-");
-                                // $('#chat2-list').append(msg);
+                                if (sendbird2.isMessage(msg.cmd)) {
+                                    msgList += msg.payload;
+                                }
                             });
+                            console.log(msgList);
                         },
                         "errorFunc": function(status, error) {
                             console.log(status, error);
