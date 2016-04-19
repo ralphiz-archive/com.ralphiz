@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class ContractorsController extends Controller
@@ -15,8 +15,9 @@ class ContractorsController extends Controller
      */
     public function index()
     {
-        //
-        return view('contractors.index');
+        $contractors = DB::table('contractors')->get();
+
+        return view('contractors.index', compact('contractors'));
     }
 
     /**

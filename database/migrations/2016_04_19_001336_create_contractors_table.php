@@ -17,34 +17,36 @@ class CreateContractorsTable extends Migration
             $table->timestamps();
 
             // Personal information
-            $table->string('contractor_firstname');
-            $table->string('contractor_lastname');
-            $table->string('contractor_email');
-            // $table->string('contractor_title');
-            // $table->string('contractor_location');
-            // $table->integer('contractor_zip');
-            // $table->string('contractor_photo');
-            // $table->string('contractor_tel');
-            // $table->string('contractor_looking');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('email');
+            $table->string('title');
+            $table->string('city');
+            $table->string('state');
+            $table->string('postcode');
+            $table->string('country');
+            $table->string('photo');
+            $table->string('tel');
+            $table->boolean('looking');
 
             // // Work/skills related
-            // $table->text('contractor_links');
-            // $table->text('contractor_description');
-            // $table->string('contractor_resume');
-            // $table->string('contractor_topskills');
-            // $table->string('contractor_otherskills');
-            // $table->text('contractor_github');
+            // $table->text('links');
+            // $table->text('description');
+            // $table->string('resume');
+            // $table->string('topskills');
+            // $table->string('otherskills');
+            // $table->text('github');
             // $table->string('github_lang')->default('0');
-            // $table->text('contractor_stoodout')->nullable();
+            // $table->text('stoodout')->nullable();
 
             // // Internal use
             // $table->integer('users_id')->unsigned()->unique();
-            // $table->string('contractor_skill_name_1', 50)->default(null);
-            // $table->integer('contractor_skill_score_1')->default(0);
-            // $table->string('contractor_skill_name_2', 50)->default(null);
-            // $table->integer('contractor_skill_score_2')->default(0);
-            // $table->string('contractor_skill_name_3', 50)->default(null);
-            // $table->integer('contractor_skill_score_3')->default(0);
+            // $table->string('skill_name_1', 50)->default(null);
+            // $table->integer('skill_score_1')->default(0);
+            // $table->string('skill_name_2', 50)->default(null);
+            // $table->integer('skill_score_2')->default(0);
+            // $table->string('skill_name_3', 50)->default(null);
+            // $table->integer('skill_score_3')->default(0);
             // $table->integer('has_score')->default(0);
             // $table->integer('general_score')->default(0);
 

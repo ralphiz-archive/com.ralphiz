@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Contractor extends Model
 {
     protected $fillable = [
-        'contractor_firstname', 'contractor_lastname', 'contractor_email'
+        'firstname', 'lastname', 'email', 'title', 'city', 'state', 'postcode', 'country', 'photo', 'tel', 'looking'
     ];
 }
