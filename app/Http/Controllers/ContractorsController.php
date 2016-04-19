@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Contractor as Contractor;
+use App\User as User;
 
 class ContractorsController extends Controller
 {
@@ -23,9 +24,9 @@ class ContractorsController extends Controller
 
     public function api()
     {
-        $contractors = Contractor::with('user')->get();
+        $user = User::with('contractor')->get();
 
-        return $contractors;
+        return $user;
     }
 
     /**
