@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Faker\Factory as Faker;
 
-class ContractorsTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class ContractorsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Contractor::class, 50)->create();   
+        factory(App\User::class, 50)->create();
     }
 }

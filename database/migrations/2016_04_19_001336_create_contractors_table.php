@@ -14,12 +14,11 @@ class CreateContractorsTable extends Migration
     {
         Schema::create('contractors', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
 
             // Personal information
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('email');
             $table->string('title');
             $table->string('city');
             $table->string('state');
@@ -39,16 +38,15 @@ class CreateContractorsTable extends Migration
             // $table->string('github_lang')->default('0');
             // $table->text('stoodout')->nullable();
 
-            // // Internal use
-            // $table->integer('users_id')->unsigned()->unique();
-            // $table->string('skill_name_1', 50)->default(null);
-            // $table->integer('skill_score_1')->default(0);
-            // $table->string('skill_name_2', 50)->default(null);
-            // $table->integer('skill_score_2')->default(0);
-            // $table->string('skill_name_3', 50)->default(null);
-            // $table->integer('skill_score_3')->default(0);
-            // $table->integer('has_score')->default(0);
-            // $table->integer('general_score')->default(0);
+            // Internal use
+            $table->string('skill_name_1', 50)->default(null);
+            $table->integer('skill_score_1')->default(0);
+            $table->string('skill_name_2', 50)->default(null);
+            $table->integer('skill_score_2')->default(0);
+            $table->string('skill_name_3', 50)->default(null);
+            $table->integer('skill_score_3')->default(0);
+            $table->integer('has_score')->default(0);
+            $table->integer('general_score')->default(0);
 
         });
     }

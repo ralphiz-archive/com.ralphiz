@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Contractor extends Model
 {
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'title', 'city', 'state', 'postcode', 'country', 'photo', 'tel', 'looking'
+        'users_id', 'title', 'city', 'state', 'postcode', 'country', 'photo', 'tel', 'looking'
     ];
+
+    /**
+     * Get the user that owns the contractor
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
