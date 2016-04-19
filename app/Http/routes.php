@@ -11,6 +11,8 @@
 |
 */
 
+Route::resource('contractors', 'ContractorsController');
+
 // Test pages
 Route::get('/chat', ['as' => 'chat', function() {
     return view('chat.sendbird');

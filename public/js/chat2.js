@@ -107,6 +107,9 @@ function startMessagingchat2() {
     sendbird2.startMessaging(guestIds, {
         "successFunc": function(data) {
             console.log(data);
+            currChannelInfo = data['channel'];
+            currChannelUrl = currChannelInfo['channel_url'];
+            console.log("Chat 2 channel: " + currChannelUrl);
             sendbird2.connect({
                 "successFunc": function(data) {
                     sendbird2.getMessageLoadMore({

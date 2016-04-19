@@ -109,6 +109,9 @@ function startMessagingchat1() {
     sendbird1.startMessaging(guestIds, {
         "successFunc": function(data) {
             console.log(data);
+            currChannelInfo = data['channel'];
+            currChannelUrl = currChannelInfo['channel_url'];
+            console.log("Chat 1 channel: " + currChannelUrl);
             sendbird1.connect({
                 "successFunc": function(data) {
                     console.log(data);
@@ -133,7 +136,6 @@ function sendMessage1() {
     var messageToSend = $('#btn-input-chat1').val();
     sendbird1.message(messageToSend + ' (Sent from Chat 1 with sendbird.message)');
 }
-
 /***********************************************
  *          // END Messaging functions
  **********************************************/
