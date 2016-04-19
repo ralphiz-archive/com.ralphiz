@@ -1,5 +1,4 @@
 <?php
-use DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +14,8 @@ class ContractorsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1,10) as $index) {
+        $limit = 10;
+        for ($i = 0; $i < $limit; $i++) {
             DB::table('contractors')->insert([
                 'contractor_firstname' => $faker->name,
                 'contractor_lastname' => $faker->name,

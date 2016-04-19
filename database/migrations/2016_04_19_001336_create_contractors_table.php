@@ -17,25 +17,25 @@ class CreateContractorsTable extends Migration
             $table->timestamps();
 
             // Personal information
-            $table->string('contractor_firstname', 100);
-            $table->string('contractor_lastname', 100);
-            $table->string('contractor_email', 100);
-            // $table->string('contractor_title', 100);
-            // $table->string('contractor_location', 100);
+            $table->string('contractor_firstname');
+            $table->string('contractor_lastname');
+            $table->string('contractor_email');
+            // $table->string('contractor_title');
+            // $table->string('contractor_location');
             // $table->integer('contractor_zip');
             // $table->string('contractor_photo');
-            // $table->string('contractor_tel', 50);
-            // $table->string('contractor_looking', 10);
+            // $table->string('contractor_tel');
+            // $table->string('contractor_looking');
 
             // // Work/skills related
-            // $table->text('contractor_links', 65535);
-            // $table->text('contractor_description', 65535);
+            // $table->text('contractor_links');
+            // $table->text('contractor_description');
             // $table->string('contractor_resume');
             // $table->string('contractor_topskills');
             // $table->string('contractor_otherskills');
             // $table->text('contractor_github');
-            // $table->string('github_lang', 100)->default('0');
-            // $table->text('contractor_stoodout', 65535)->nullable();
+            // $table->string('github_lang')->default('0');
+            // $table->text('contractor_stoodout')->nullable();
 
             // // Internal use
             // $table->integer('users_id')->unsigned()->unique();
