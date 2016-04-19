@@ -28,15 +28,15 @@ class CreateContractorsTable extends Migration
             $table->string('tel');
             $table->boolean('looking');
 
-            // // Work/skills related
-            // $table->text('links');
-            // $table->text('description');
-            // $table->string('resume');
-            // $table->string('topskills');
-            // $table->string('otherskills');
-            // $table->text('github');
-            // $table->string('github_lang')->default('0');
-            // $table->text('stoodout')->nullable();
+            // Work/skills related
+            $table->text('links');
+            $table->text('description');
+            $table->string('resume');
+            $table->string('topskills');
+            $table->string('otherskills');
+            $table->text('github');
+            $table->string('github_lang')->default('0');
+            $table->text('stoodout')->nullable();
 
             // Internal use
             $table->string('skill_name_1', 50)->default(null);

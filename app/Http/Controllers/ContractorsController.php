@@ -21,6 +21,13 @@ class ContractorsController extends Controller
         return view('contractors.index', compact('contractors'));
     }
 
+    public function api()
+    {
+        $contractors = Contractor::with('user')->get();
+
+        return $contractors;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

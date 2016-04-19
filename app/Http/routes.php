@@ -12,6 +12,7 @@
 */
 
 Route::resource('contractors', 'ContractorsController');
+Route::get('/api/contractors', 'ContractorsController@api');
 
 // Test pages
 Route::get('/chat', ['as' => 'chat', function() {
