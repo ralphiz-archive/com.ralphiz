@@ -22,8 +22,8 @@ $faker = Faker::create();
         <tbody>
             @foreach($contractors as $contractor)
             <tr>
-                <td>{{ $contractor->firstname.' '.$contractor->lastname }}</td>
-                <td>{{ $contractor->email }}</td>
+                <td>{{ $contractor->user->firstname.' '.$contractor->user->lastname }}</td>
+                <td>{{ $contractor->user->email }}</td>
                 <td>{{ $contractor->title }}</td>
                 <td>{{ $contractor->city.', '.$contractor->state }}</td>
                 <td>@if ($contractor->looking) {{ "Yes" }} @else {{ "No" }} @endif</td>

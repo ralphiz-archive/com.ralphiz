@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Contractor as Contractor;
 
 class ContractorsController extends Controller
 {
@@ -15,7 +16,7 @@ class ContractorsController extends Controller
      */
     public function index()
     {
-        $contractors = DB::table('contractors')->get();
+        $contractors = Contractor::with('user')->get();
 
         return view('contractors.index', compact('contractors'));
     }
