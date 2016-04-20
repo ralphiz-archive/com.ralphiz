@@ -13,6 +13,6 @@ class ContractorsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Contractor::class, 50)->create();   
+        //factory(App\Contractor::class, 50)->create();   
     }
 }

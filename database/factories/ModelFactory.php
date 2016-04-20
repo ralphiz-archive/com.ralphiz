@@ -23,11 +23,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Contractor::class, function (Faker\Generator $faker) {
+    $score1 = $faker->numberBetween($min=1, $max=10);
+    $score2 = $faker->numberBetween($min=1, $max=10);
+    $score3 = $faker->numberBetween($min=1, $max=10);
     return [
         // Personal information
-        'user_id' => function () {
-            return factory(App\User::class)->create()->id;
-        },
         'title' => 'software '.$faker->word,
         'city' => $faker->city,
         'state' => $faker->stateAbbr,
@@ -35,10 +35,18 @@ $factory->define(App\Contractor::class, function (Faker\Generator $faker) {
         'country' => 'US',
         'photo' => $faker->imageUrl($width = 640, $height = 480, 'nature'),
         'tel' => $faker->phoneNumber,
-        'looking' => $faker->boolean($chanceOfGettingTrue = 80)
+        'looking' => $faker->boolean($chanceOfGettingTrue = 80),
 
         // Work/skills related
 
         // Internal use
+        'skill1' => $faker->randomSkill,
+        'skill2' => $faker->randomSkill,
+        'skill3' => $faker->randomSkill,
+        'score1' => $score1,
+        'score2' => $score2,
+        'score3' => $score3,
+        'has_score' => true,
+        'general_score' => ($score1 + $score2 + $score3) / 3
     ];
 });

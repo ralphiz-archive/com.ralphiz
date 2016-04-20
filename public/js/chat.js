@@ -32,11 +32,11 @@ function startSendBird1(guestId1, nickName1) {
             //getMessagingChannelList();
             sendbird1.connect();
             sendbird1.getUserInfo(function(data) {
-                console.log(data);
+                // console.log(data);
             });
         },
         "errorFunc": function(status, error) {
-            console.log(status, error);
+            // console.log(status, error);
             if (error == 'Request Domain is not authentication.') {
                 alert(error);
             } else {
@@ -50,39 +50,39 @@ function startSendBird1(guestId1, nickName1) {
         //scrollBottom();
     };
     sendbird1.events.onSystemMessageReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird1.events.onFileMessageReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird1.events.onBroadcastMessageReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird1.events.onMessagingChannelUpdateReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird1.events.onTypeStartReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     }
     sendbird1.events.onTypeEndReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     }
     sendbird1.events.onReadReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird1.events.onMessageDelivery = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird1.events.onBanReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
 }
@@ -94,9 +94,9 @@ function startSendBird1(guestId1, nickName1) {
  **********************************************/
 function newMessage(obj) {
     var msgList = '';
-    console.log("===");
-    console.log(obj);
-    console.log("===");
+    // console.log("===");
+    // console.log(obj);
+    // console.log("===");
 }
 /***********************************************
  *          // END Common functions
@@ -108,25 +108,25 @@ function startMessagingchat1() {
     var guestIds = ['1', '2'];
     sendbird1.startMessaging(guestIds, {
         "successFunc": function(data) {
-            console.log(data);
+            // console.log(data);
             currChannelInfo = data['channel'];
             currChannelUrl = currChannelInfo['channel_url'];
-            console.log("Chat 1 channel: " + currChannelUrl);
+            console.log("channel_url 1: " + currChannelUrl);
             sendbird1.connect({
                 "successFunc": function(data) {
-                    console.log(data);
+                    // console.log(data);
                     sendbird1.message("Test message. (Sent from sendbird.startMessaging)");
                     // do something
                 },
                 "errorFunc": function(status, error) {
-                    console.log(status, error);
+                    // console.log(status, error);
                     // do something
                 }
             });
             // do something
         },
         "errorFunc": function(status, error) {
-            console.log(status, error);
+            // console.log(status, error);
             // do something
         }
     });

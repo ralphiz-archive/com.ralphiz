@@ -32,11 +32,11 @@ function startSendBird2(guestId2, nickName2) {
             //getMessagingChannelList();
             sendbird2.connect();
             sendbird2.getUserInfo(function(data) {
-                console.log(data);
+                // console.log(data);
             });
         },
         "errorFunc": function(status, error) {
-            console.log(status, error);
+            // console.log(status, error);
             if (error == 'Request Domain is not authentication.') {
                 alert(error);
             } else {
@@ -50,39 +50,39 @@ function startSendBird2(guestId2, nickName2) {
         //scrollBottom();
     };
     sendbird2.events.onSystemMessageReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird2.events.onFileMessageReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird2.events.onBroadcastMessageReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird2.events.onMessagingChannelUpdateReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird2.events.onTypeStartReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     }
     sendbird2.events.onTypeEndReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     }
     sendbird2.events.onReadReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird2.events.onMessageDelivery = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
     sendbird2.events.onBanReceived = function(obj) {
-        console.log(obj);
+        // console.log(obj);
         // do something...
     };
 }
@@ -106,10 +106,10 @@ function startMessagingchat2() {
     var guestIds = ['1', '2'];
     sendbird2.startMessaging(guestIds, {
         "successFunc": function(data) {
-            console.log(data);
+            // console.log(data);
             currChannelInfo = data['channel'];
             currChannelUrl = currChannelInfo['channel_url'];
-            console.log("Chat 2 channel: " + currChannelUrl);
+            console.log("channel_url 2: " + currChannelUrl);
             sendbird2.connect({
                 "successFunc": function(data) {
                     sendbird2.getMessageLoadMore({
@@ -121,25 +121,25 @@ function startMessagingchat2() {
                                     msgList += msg.payload;
                                 }
                             });
-                            console.log(msgList);
+                            // console.log(msgList);
                         },
                         "errorFunc": function(status, error) {
-                            console.log(status, error);
+                            // console.log(status, error);
                             // do something
                         }
                     });
-                    console.log(data);
+                    // console.log(data);
                     // do something
                 },
                 "errorFunc": function(status, error) {
-                    console.log(status, error);
+                    // console.log(status, error);
                     // do something
                 }
             });
             // do something
         },
         "errorFunc": function(status, error) {
-            console.log(status, error);
+            // console.log(status, error);
             // do something
         }
     });

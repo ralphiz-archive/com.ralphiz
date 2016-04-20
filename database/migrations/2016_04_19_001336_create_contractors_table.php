@@ -39,13 +39,13 @@ class CreateContractorsTable extends Migration
             $table->text('stoodout')->nullable();
 
             // Internal use
-            $table->string('skill_name_1', 50)->default(null);
-            $table->integer('skill_score_1')->default(0);
-            $table->string('skill_name_2', 50)->default(null);
-            $table->integer('skill_score_2')->default(0);
-            $table->string('skill_name_3', 50)->default(null);
-            $table->integer('skill_score_3')->default(0);
-            $table->integer('has_score')->default(0);
+            $table->string('skill1', 50)->default(null);
+            $table->integer('score1')->default(0);
+            $table->string('skill2', 50)->default(null);
+            $table->integer('score2')->default(0);
+            $table->string('skill3', 50)->default(null);
+            $table->integer('score3')->default(0);
+            $table->boolean('has_score')->default(false);
             $table->integer('general_score')->default(0);
 
         });
