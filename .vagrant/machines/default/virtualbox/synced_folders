@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/com-ralphiz":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/com-ralphiz","hostpath":"/Users/ralphiz/Code/com.ralphiz","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/ralphiz/Code/com.ralphiz","disabled":false,"__vagrantfile":true}}}
