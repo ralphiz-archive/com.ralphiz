@@ -1,7 +1,6 @@
 @extends('layouts.trytara')
 
 @section('content')
-$
 
 
     <table id="contractors-table" class="table table-striped table-condensed table-responsive">

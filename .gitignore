@@ -4,6 +4,8 @@ node_modules/
 /node_modules
 Homestead.yaml
 Homestead.json
+/.vagrant
+.vagrant
 
 # Laravel 4 specific
 bootstrap/compiled.php
