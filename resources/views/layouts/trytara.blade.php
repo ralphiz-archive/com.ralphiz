@@ -5,6 +5,7 @@
             TryTara
         </title>
         <link rel="stylesheet" type="text/css" href="/css/app.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/jquery.bootgrid.min.css"/>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -48,11 +49,10 @@
             </div>
         </nav>
 
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content')
         
         <script src="/js/app.js"></script>
-        <script src="/js/chat.js"></script>
+        <script src="/js/jquery.bootgrid.min.js"></script>
+        @yield('scripts')
     </body>
 </html>
