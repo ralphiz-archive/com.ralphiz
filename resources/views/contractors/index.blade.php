@@ -11,7 +11,7 @@
     <table id="contractors-table" class="table table-striped table-condensed table-responsive">
         <thead>
             <tr>
-                <th data-column-id="name" data-sortable="true">Name</th>
+                <th data-column-id="name" data-formatter="name" data-sortable="true">Name</th>
                 <th data-column-id="email" data-sortable="true">E-mail</th>
                 <th data-column-id="location" data-sortable="true">Location</th>
                 <th data-column-id="recent" data-sortable="true">Recent Experience</th>
@@ -29,7 +29,7 @@
         <tbody>
             @foreach($contractors as $contractor)
             <tr>
-                <td>{{ $contractor->user->firstname.' '.$contractor->user->lastname }}</td>
+                <td>{{ $contractor->user->first_name }},{{ $contractor->user->last_name[0] }},{{ $contractor->photo }}</td>
                 <td>{{ $contractor->user->email }}</td>
                 <td>{{ $contractor->city.', '.$contractor->state }}</td>
                 <td>{{ $contractor->title }}</td>
@@ -48,12 +48,19 @@
     </table>
 @stop
 @section('scripts')
+<script src="/js/search-contractors.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         var grid = $("#contractors-table").bootgrid({
             caseSensitive: false,
             rowCount: [20, 50, 100, -1],
-            multiSort: true
+            multiSort: true,
+            formatters: {
+                "name": function(column, row) {
+                    return nameFormatterFunction(column, row);
+                }
+            }
+
         });
     });
 </script>
