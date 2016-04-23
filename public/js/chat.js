@@ -105,7 +105,7 @@ function newMessage(obj) {
  *          // Messaging functions
  **********************************************/
 function startMessagingchat1() {
-    var guestIds = ['1', '2'];
+    var guestIds = ['2'];
     sendbird1.startMessaging(guestIds, {
         "successFunc": function(data) {
             // console.log(data);

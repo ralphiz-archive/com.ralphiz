@@ -103,7 +103,7 @@ function newMessage2(obj) {
  *          // Messaging functions
  **********************************************/
 function startMessagingchat2() {
-    var guestIds = ['1', '2'];
+    var guestIds = ['1'];
     sendbird2.startMessaging(guestIds, {
         "successFunc": function(data) {
             // console.log(data);
