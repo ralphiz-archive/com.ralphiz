@@ -114,11 +114,17 @@ function startMessagingchat2() {
                 "successFunc": function(data) {
                     sendbird2.getMessageLoadMore({
                         "successFunc": function(data) {
-                            var pastMessages = data["messages"];
+                            var pastMessages = data.messages;
                             var msgList = '';
+                            console.log("data: " + data);
+                            console.log("data['messages']: " + data.messages)
                             $.each(pastMessages.reverse(), function(index, msg) {
-                                if (sendbird2.isMessage(msg.cmd)) {
-                                    msgList += msg.payload;
+                                console.dir(msg);
+                                console.log(msg.payload);
+                                console.log(msg.payload.message);
+                                console.log('===');
+                                if (msg.cmd === 'MESG') {
+                                    $('#chat2-list').append(newMessage2(msg.payload));
                                 }
                             });
                             // console.log(msgList);

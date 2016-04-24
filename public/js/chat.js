@@ -115,7 +115,7 @@ function startMessagingchat1() {
             sendbird1.connect({
                 "successFunc": function(data) {
                     // console.log(data);
-                    sendbird1.message("Test message. (Sent from sendbird.startMessaging)");
+                    //sendbird1.message("Test message. (Sent from sendbird.startMessaging)");
                     // do something
                 },
                 "errorFunc": function(status, error) {
