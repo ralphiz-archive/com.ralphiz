@@ -22,7 +22,7 @@
                 <th data-column-id="skill3" data-sortable="true">Skill 3</th>
                 <th data-column-id="score3" data-sortable="true">Score 3</th>
                 <th data-column-id="average" data-sortable="true">Avg</th>
-                <th data-column-id="looking" data-sortable="true">Available?</th>
+                <th data-column-id="looking" data-sortable="true">Looking</th>
                 <th data-column-id="actions" data-formatter="actions" data-sortable="false">Commands</th>
             </tr>
         </thead>
