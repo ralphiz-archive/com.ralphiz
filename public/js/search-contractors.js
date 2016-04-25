@@ -9,7 +9,7 @@ function nameFormatterFunction(column, row) {
     //var ids = id_str.split(",");
     // View Button
     var nameLinked = '<div><img style="height: 40px; width: 40px; border-radius: 25px; float: left; margin-right: 10px;" class="img-responsive" src=":profileimage" alt="" "/><p>' + names[0] + ' ' + names[1] + '.' + '</p></div>';
-    console.log(names[0]);
+    console.log(names);
     //nameLinked = nameLinked.replace(':jobid', ids[0]);
     //nameLinked = nameLinked.replace(':profileid', ids[1]);
     nameLinked = nameLinked.replace(':profileimage', names[2]);
