@@ -4,7 +4,7 @@ namespace Faker\Provider;
 
 class TechnicalSkills extends \Faker\Provider\Base
 {
-    protected static $skills = array(
+    public static $skills = array(
         // Top 18 programming languages from [http://pypl.github.io/PYPL.html]
         'Java', 'Python', 'PHP', 'C#', 'JavaScript', 'C++', 'C', 'Objective-C', 'R', 'Swift', 'Matlab', 'Ruby', 'Visual Basic', 'VBA', 'Perl', 'Scala', 'lua', 'Delphi',
 
