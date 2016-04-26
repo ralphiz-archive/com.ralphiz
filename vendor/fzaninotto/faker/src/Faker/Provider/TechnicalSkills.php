@@ -12,7 +12,7 @@ class TechnicalSkills extends \Faker\Provider\Base
         'ASP.net', 'AngularJS', 'Ruby on Rails', 'ASP.net MVC', 'Django', 'Laravel', 'Meteor', 'Spring', 'Express', 'CodeIgniter',
 
         // Other random skills
-        'Android', 'iOs', 'AI',
+        'Android', 'iOs', 'AI', 'QA',
 
         // FE/BE/FS
         'Front-end', 'Back-end', 'Full Stack'

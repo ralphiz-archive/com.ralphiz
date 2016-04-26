@@ -12,7 +12,7 @@
         <thead>
             <tr>
                 <th data-column-id="name" data-formatter="name" data-sortable="true">Name</th>
-                <!--<th data-column-id="email" data-sortable="true">E-mail</th>-->
+                <th data-column-id="email" data-sortable="true">E-mail</th>
                 <th data-column-id="location" data-sortable="true">Location</th>
                 <th data-column-id="recent" data-sortable="true">Recent Experience</th>
                 <th data-column-id="skill1" data-sortable="true">Skill 1</th>
@@ -30,7 +30,7 @@
             @foreach($contractors as $contractor)
             <tr>
                 <td>{{ $contractor->user->firstname }},{{ $contractor->user->lastname[0] }},{{ $contractor->photo }}</td>
-                <!-- <td>{{ $contractor->user->email }}</td> -->
+                <td>{{ $contractor->user->email }}</td>
                 <td>{{ $contractor->city.', '.$contractor->state }}</td>
                 <td>{{ $contractor->title }}</td>
                 <td>{{ $contractor->skill1 }}
