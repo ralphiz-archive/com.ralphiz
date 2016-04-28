@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        @yield('meta')
         <title>
             ralphiz.com
         </title>

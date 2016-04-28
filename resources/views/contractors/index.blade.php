@@ -34,7 +34,8 @@ use Faker\Provider\TechnicalSkills as TechnicalSkills;
                 <th data-column-id="skill2" data-formatter="skill2" data-sortable="true">Skill 2</th>
                 <th data-column-id="skill3" data-formatter="skill3" data-sortable="true">Skill 3</th>
                 <th data-column-id="average" data-sortable="true">Avg</th>
-                <th data-column-id="looking" data-sortable="true">Looking</th>
+                <th data-column-id="employment">Employment</th>
+                <th data-column-id="looking" data-formatter="looking" data-sortable="true">Looking</th>
                 <th data-column-id="actions" data-formatter="actions" data-sortable="false">Commands</th>
             </tr>
         </thead>
@@ -49,7 +50,8 @@ use Faker\Provider\TechnicalSkills as TechnicalSkills;
                 <td>{{ $contractor->score2 }},{{ $contractor->skill2 }}</td>
                 <td>{{ $contractor->score3 }},{{ $contractor->skill3 }}</td>
                 <td>{{ $contractor->general_score }}</td>
-                <td>@if ($contractor->looking) {{ "Yes" }} @else {{ "No" }} @endif</td>
+                <td>{{ "Part Time or Full Time?" }}</td>
+                <td>{{ $contractor->looking }}</td>
                 <td></td>
             </tr>
             @endforeach
@@ -66,16 +68,19 @@ use Faker\Provider\TechnicalSkills as TechnicalSkills;
             multiSort: true,
             formatters: {
                 "name": function(column, row) {
-                    return nameFormatterFunction(column, row);
+                    return nameFormatter(column, row);
                 },
                 "skill1": function(column, row) {
-                    return skill1_FormatterFunction(column, row);
+                    return skill1Formatter(column, row);
                 },
                 "skill2": function(column, row) {
-                    return skill2_FormatterFunction(column, row);
+                    return skill2Formatter(column, row);
                 },
                 "skill3": function(column, row) {
-                    return skill3_FormatterFunction(column, row);
+                    return skill3Formatter(column, row);
+                },
+                "looking": function(column, row) {
+                    return lookingFormatter(column, row);
                 }
             }
 

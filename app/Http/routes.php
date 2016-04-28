@@ -23,6 +23,8 @@ Route::get('/minesweeper', ['as' => 'chat', function() {
     return view('projects.minesweeper');
 }]);
 
+Route::get('/4sq', ['as' => 'foursquare', 'uses' => 'FoursquareApp@index']);
+
 // Static pages
 Route::get('/', ['as' => 'home', function () {
     return view('pages.home');
