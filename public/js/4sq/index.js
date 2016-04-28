@@ -13,6 +13,7 @@ if(access_token){
         success:function(user_data) {
             //console.dir(user_data);
             $('article').text('Hello '+user_data.response.user.firstName);
+            console.log(user_data);
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.error(errorThrown);

@@ -16,7 +16,10 @@
     <div class="row">
         <article></article>
     </div>
+</div>
 
+<div id="foursquareinfo" class="row">
+    
 </div>
 @stop
 @section('scripts')
