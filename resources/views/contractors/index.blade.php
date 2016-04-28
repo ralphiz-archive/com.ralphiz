@@ -30,12 +30,9 @@ use Faker\Provider\TechnicalSkills as TechnicalSkills;
                 <th data-column-id="email" data-sortable="true">E-mail</th>
                 <th data-column-id="location" data-sortable="true">Location</th>
                 <th data-column-id="recent" data-sortable="true">Recent Experience</th>
-                <th data-column-id="skill1" data-sortable="true">Skill 1</th>
-                <th data-column-id="score1" data-sortable="true">Score 1</th>
-                <th data-column-id="skill2" data-sortable="true">Skill 2</th>
-                <th data-column-id="score2" data-sortable="true">Score 2</th>
-                <th data-column-id="skill3" data-sortable="true">Skill 3</th>
-                <th data-column-id="score3" data-sortable="true">Score 3</th>
+                <th data-column-id="skill1" data-formatter="skill1" data-sortable="true">Skill 1</th>
+                <th data-column-id="skill2" data-formatter="skill2" data-sortable="true">Skill 2</th>
+                <th data-column-id="skill3" data-formatter="skill3" data-sortable="true">Skill 3</th>
                 <th data-column-id="average" data-sortable="true">Avg</th>
                 <th data-column-id="looking" data-sortable="true">Looking</th>
                 <th data-column-id="actions" data-formatter="actions" data-sortable="false">Commands</th>
@@ -48,12 +45,9 @@ use Faker\Provider\TechnicalSkills as TechnicalSkills;
                 <td>{{ $contractor->user->email }}</td>
                 <td>{{ $contractor->city.', '.$contractor->state }}</td>
                 <td>{{ $contractor->title }}</td>
-                <td>{{ $contractor->skill1 }}
-                <td>{{ $contractor->score1 }}
-                <td>{{ $contractor->skill2 }}
-                <td>{{ $contractor->score2 }}
-                <td>{{ $contractor->skill3 }}
-                <td>{{ $contractor->score3 }}
+                <td>{{ $contractor->score1 }},{{ $contractor->skill1 }}</td>
+                <td>{{ $contractor->score2 }},{{ $contractor->skill2 }}</td>
+                <td>{{ $contractor->score3 }},{{ $contractor->skill3 }}</td>
                 <td>{{ $contractor->general_score }}</td>
                 <td>@if ($contractor->looking) {{ "Yes" }} @else {{ "No" }} @endif</td>
                 <td></td>
@@ -73,6 +67,15 @@ use Faker\Provider\TechnicalSkills as TechnicalSkills;
             formatters: {
                 "name": function(column, row) {
                     return nameFormatterFunction(column, row);
+                },
+                "skill1": function(column, row) {
+                    return skill1_FormatterFunction(column, row);
+                },
+                "skill2": function(column, row) {
+                    return skill2_FormatterFunction(column, row);
+                },
+                "skill3": function(column, row) {
+                    return skill3_FormatterFunction(column, row);
                 }
             }
 
