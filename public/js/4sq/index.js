@@ -11,9 +11,8 @@ if(access_token){
         url:'https://api.foursquare.com/v2/users/self',
         data: {oauth_token:access_token},
         success:function(user_data) {
-            //console.dir(user_data);
+            console.dir(user_data);
             $('article').text('Hello '+user_data.response.user.firstName);
-            console.log(user_data);
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.error(errorThrown);
