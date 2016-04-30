@@ -1,24 +1,11 @@
-<?php
-use Faker\Provider\TechnicalSkills as TechnicalSkills;
-?>
 @extends('layouts.trytara')
 
 @section('content')
 
     <div class="t-header">
         <div class="th-title">
-            <div class="dropdown">
-
-            <button class="btn btn-default dropdown-toggle" type="button" id="skillDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Filter by Skill
-                <span class="caret"></span>
-            </button>
-
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    @foreach(TechnicalSkills::$skills as $skill)
-                        <li><a href="#">{{ $skill }}</a></li>
-                    @endforeach
-                </ul>
+            <div class="container">
+                @include('contractors.partials._skill1filter')
             </div>
         </div>
     </div>
