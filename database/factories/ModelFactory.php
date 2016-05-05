@@ -28,7 +28,7 @@ $factory->define(App\Contractor::class, function (Faker\Generator $faker) {
     $score3 = $faker->numberBetween($min=1, $max=10);
     return [
         // Personal information
-        'title' => 'software '.$faker->word,
+        'title' => 'software '.$faker->word.$faker->randomLetter.' '.$faker->randomDigit,
         'city' => $faker->city,
         'state' => $faker->stateAbbr,
         'postcode' => $faker->postcode,

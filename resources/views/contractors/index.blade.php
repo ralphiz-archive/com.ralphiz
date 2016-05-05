@@ -2,14 +2,6 @@
 
 @section('content')
 
-    <div class="t-header">
-        <div class="th-title">
-            <div class="container">
-                @include('contractors.partials._skill1filter')
-            </div>
-        </div>
-    </div>
-
     <table id="contractors-table" class="table table-striped table-condensed table-responsive">
         <thead>
             <tr>
@@ -52,7 +44,7 @@
         var grid = $("#contractors-table").bootgrid({
             caseSensitive: false,
             rowCount: [20, 50, 100, -1],
-            multiSort: true,
+            multiSort: false,
             formatters: {
                 "name": function(column, row) {
                     return nameFormatter(column, row);
@@ -68,6 +60,9 @@
                 },
                 "looking": function(column, row) {
                     return lookingFormatter(column, row);
+                },
+                "actions": function(column, row) {
+                    return actionsFormatter(column, row);
                 }
             }
 
