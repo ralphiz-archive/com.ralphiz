@@ -5753,6 +5753,10 @@ button.close {
 body {
   padding-top: 70px; }
 
+.img-small {
+  max-height: 50px;
+  max-width: 50px; }
+
 /* Chat styles */
 /* Source: http://bootsnipp.com/snippets/featured/chat-widget */
 .chat {

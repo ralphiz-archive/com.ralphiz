@@ -28,15 +28,9 @@ function startSendBird1(guestId1, nickName1) {
         "image_url": '',
         "access_token": '',
         "successFunc": function(data) {
-            //$('.init-check').hide();
-            //getMessagingChannelList();
             sendbird1.connect();
-            sendbird1.getUserInfo(function(data) {
-                // console.log(data);
-            });
         },
         "errorFunc": function(status, error) {
-            // console.log(status, error);
             if (error == 'Request Domain is not authentication.') {
                 alert(error);
             } else {
@@ -47,7 +41,6 @@ function startSendBird1(guestId1, nickName1) {
     });
     sendbird1.events.onMessageReceived = function(obj) {
         $('#chat1-list').append(newMessage(obj));
-        //scrollBottom();
     };
     sendbird1.events.onSystemMessageReceived = function(obj) {
         // console.log(obj);
@@ -68,11 +61,11 @@ function startSendBird1(guestId1, nickName1) {
     sendbird1.events.onTypeStartReceived = function(obj) {
         // console.log(obj);
         // do something...
-    }
+    };
     sendbird1.events.onTypeEndReceived = function(obj) {
         // console.log(obj);
         // do something...
-    }
+    };
     sendbird1.events.onReadReceived = function(obj) {
         // console.log(obj);
         // do something...
@@ -94,9 +87,64 @@ function startSendBird1(guestId1, nickName1) {
  **********************************************/
 function newMessage(obj) {
     var msgList = '';
-    // console.log("===");
-    // console.log(obj);
-    // console.log("===");
+}
+function createMessage(obj) {
+    var msg = '';
+    var current_name = 'Me';
+    var myDate = new Date( obj['ts'] );
+    if(obj['user']['guest_id'] == 1) {
+        msg = '' +
+        '<li class="right clearfix">' +
+        '   <span class="chat-img pull-right">' +
+            '<img src="' +
+            obj['user']['image'] +
+            '" alt="User Avatar" class="img-circle img-small">' +
+        '   </span>' +
+        '   <div class="chat-body clearfix">' +
+        '       <div class="header">' +
+        '           <small class=" text-muted">' +
+        '               <span class="glyphicon glyphicon-time"></span>' +
+                        myDate.toLocaleString() +
+        '           </small>' +
+        '           <strong class="pull-right primary-font">' +
+                        current_name +
+        '           </strong>' +
+        '       </div>' +
+        '           <p>' +
+                        obj['message'] +
+        '           </p>' +
+        '   </div>' +
+        '</li>';
+    } else {
+        msg = '' +
+        '<li class="left clearfix">' +
+        '   <span class="chat-img pull-left">' +
+            '<img src="' +
+            obj['user']['image'] +
+            '" alt="User Avatar" class="img-circle img-small">' +
+        '   </span>' +
+        '   <div class="chat-body clearfix">' +
+        '       <div class="header">' +
+        '           <strong class="primary-font">' +
+                        current_name +
+        '           </strong>' +
+        '           <small class="pull-right text-muted">' +
+        '               <span class="glyphicon glyphicon-time"></span>' +
+                        myDate.toLocaleString() +
+        '           </small>' +
+        '       </div>' +
+        '           <p>' +
+                        obj['message'] +
+        '           </p>' +
+        '   </div>' +
+        '</li>';  
+    }
+
+    $('#chat1-list').append(msg);
+
+    console.dir(obj);
+    console.log(obj['user']['guest_id']);
+    console.log("---------------------");
 }
 /***********************************************
  *          // END Common functions
@@ -108,30 +156,45 @@ function startMessagingchat1() {
     var guestIds = ['2'];
     sendbird1.startMessaging(guestIds, {
         "successFunc": function(data) {
-            // console.log(data);
             currChannelInfo = data['channel'];
             currChannelUrl = currChannelInfo['channel_url'];
             console.log("channel_url 1: " + currChannelUrl);
             sendbird1.connect({
                 "successFunc": function(data) {
-                    // console.log(data);
-                    //sendbird1.message("Test message. (Sent from sendbird.startMessaging)");
-                    // do something
+                    sendbird1.getMessageLoadMore({
+                        "successFunc": function(data) {
+                            var pastMessages = data.messages;
+                            var msgList = '';
+                            $.each(pastMessages.reverse(), function(index, msg) {
+                                createMessage(msg.payload);
+                                // console.dir(msg);
+                                // console.log(msg.payload);
+                                // console.log(msg.payload.message);
+                                // console.log('===');
+                                // if (msg.cmd === 'MESG') {
+                                //     $('#chat2-list').append(newMessage2(msg.payload));
+                                // }
+                            });
+                            scrollPositionBottom2();
+                            // console.log(msgList);
+                        },
+                        "errorFunc": function(status, error) {
+                            // console.log(status, error);
+                            // do something
+                        }
+                    });
                 },
                 "errorFunc": function(status, error) {
-                    // console.log(status, error);
-                    // do something
+                    console.log(status, error);
                 }
             });
             // do something
         },
         "errorFunc": function(status, error) {
-            // console.log(status, error);
-            // do something
+            console.log(status, error);
         }
     });
 }
-
 function sendMessage1() {
     var messageToSend = $('#btn-input-chat1').val();
     sendbird1.message(messageToSend + ' (Sent from Chat 1 with sendbird.message)');
@@ -141,6 +204,7 @@ function sendMessage1() {
  **********************************************/
 function init1() {
     guestId1 = "1";
+    guestId = guestId1;
     nickname1 = $('#user_nickname1').val();
     startSendBird1(guestId1, nickname1);
     $('.chat1-status').html(" (Online as '" + nickname1 + "')");

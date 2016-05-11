@@ -96,6 +96,9 @@ function newMessage2(obj) {
     var msgList = '';
     $('#chat2-list').append('<li>' + obj['message'] + '</li>');
 }
+var scrollPositionBottom2 = function() {
+    $("#chat2-list").scrollTop($("#chat2-list")[0].scrollHeight);
+};
 /***********************************************
  *          // END Common functions
  **********************************************/
@@ -116,17 +119,18 @@ function startMessagingchat2() {
                         "successFunc": function(data) {
                             var pastMessages = data.messages;
                             var msgList = '';
-                            console.log("data: " + data);
-                            console.log("data['messages']: " + data.messages)
+                            // console.log("data: " + data);
+                            // console.log("data['messages']: " + data.messages)
                             $.each(pastMessages.reverse(), function(index, msg) {
                                 console.dir(msg);
-                                console.log(msg.payload);
-                                console.log(msg.payload.message);
+                                //console.log(msg.payload);
+                                //console.log(msg.payload.message);
                                 console.log('===');
                                 if (msg.cmd === 'MESG') {
                                     $('#chat2-list').append(newMessage2(msg.payload));
                                 }
                             });
+                            scrollPositionBottom2();
                             // console.log(msgList);
                         },
                         "errorFunc": function(status, error) {

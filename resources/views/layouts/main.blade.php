@@ -79,6 +79,7 @@
 
         <script src="/js/SendBird.min.js"></script>
         <script src="/js/app.js"></script>
+        <script src="/js/chat-util.js"></script>
         <script src="/js/chat.js"></script>
         <script src="/js/chat2.js"></script>
         @yield('scripts')
