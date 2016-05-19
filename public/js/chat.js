@@ -29,6 +29,9 @@ function startSendBird1(guestId1, nickName1) {
         "access_token": '',
         "successFunc": function(data) {
             sendbird1.connect();
+            sendbird1.getUserInfo(function(data) {
+                console.log(data);
+            });
         },
         "errorFunc": function(status, error) {
             if (error == 'Request Domain is not authentication.') {
@@ -40,7 +43,8 @@ function startSendBird1(guestId1, nickName1) {
         }
     });
     sendbird1.events.onMessageReceived = function(obj) {
-        $('#chat1-list').append(newMessage(obj));
+        // console.log(obj);
+        // do something...
     };
     sendbird1.events.onSystemMessageReceived = function(obj) {
         // console.log(obj);
@@ -85,14 +89,15 @@ function startSendBird1(guestId1, nickName1) {
 /***********************************************
  *          // Common functions
  **********************************************/
-function newMessage(obj) {
-    var msgList = '';
+function sendMessage1() {
+    var messageToSend1 = $('#btn-input-chat1').val();
+    sendbird1.message(messageToSend1);
 }
-function createMessage(obj) {
+function createMessage1(obj) {
     var msg = '';
     var current_name = 'Me';
     var myDate = new Date( obj['ts'] );
-    if(obj['user']['guest_id'] == 1) {
+    if(obj['user']['guest_id'] === '2') {
         msg = '' +
         '<li class="right clearfix">' +
         '   <span class="chat-img pull-right">' +
@@ -153,8 +158,8 @@ function createMessage(obj) {
  *          // Messaging functions
  **********************************************/
 function startMessagingchat1() {
-    var guestIds = ['2'];
-    sendbird1.startMessaging(guestIds, {
+    var guestIds1 = ['2'];
+    sendbird1.startMessaging(guestIds1, {
         "successFunc": function(data) {
             currChannelInfo = data['channel'];
             currChannelUrl = currChannelInfo['channel_url'];
@@ -166,7 +171,7 @@ function startMessagingchat1() {
                             var pastMessages = data.messages;
                             var msgList = '';
                             $.each(pastMessages.reverse(), function(index, msg) {
-                                createMessage(msg.payload);
+                                createMessage1(msg.payload);
                                 // console.dir(msg);
                                 // console.log(msg.payload);
                                 // console.log(msg.payload.message);
@@ -175,7 +180,6 @@ function startMessagingchat1() {
                                 //     $('#chat2-list').append(newMessage2(msg.payload));
                                 // }
                             });
-                            scrollPositionBottom2();
                             // console.log(msgList);
                         },
                         "errorFunc": function(status, error) {
@@ -195,16 +199,11 @@ function startMessagingchat1() {
         }
     });
 }
-function sendMessage1() {
-    var messageToSend = $('#btn-input-chat1').val();
-    sendbird1.message(messageToSend + ' (Sent from Chat 1 with sendbird.message)');
-}
 /***********************************************
  *          // END Messaging functions
  **********************************************/
 function init1() {
     guestId1 = "1";
-    guestId = guestId1;
     nickname1 = $('#user_nickname1').val();
     startSendBird1(guestId1, nickname1);
     $('.chat1-status').html(" (Online as '" + nickname1 + "')");

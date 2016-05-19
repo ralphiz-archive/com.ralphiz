@@ -18,7 +18,7 @@ var typingUser = [];
 var TYPE_CHECK_TIME = 10000;
 var sendbird2 = SB.getInstance();
 /***********************************************
- *          // SendBird Box 1 Settings
+ *          // SendBird Box 2 Settings
  **********************************************/
 function startSendBird2(guestId2, nickName2) {
     sendbird2.init({
@@ -32,7 +32,7 @@ function startSendBird2(guestId2, nickName2) {
             //getMessagingChannelList();
             sendbird2.connect();
             sendbird2.getUserInfo(function(data) {
-                // console.log(data);
+                console.log(data);
             });
         },
         "errorFunc": function(status, error) {
@@ -46,8 +46,8 @@ function startSendBird2(guestId2, nickName2) {
         }
     });
     sendbird2.events.onMessageReceived = function(obj) {
-        $('#chat2-list').append(newMessage2(obj));
-        //scrollBottom();
+        // console.log(obj);
+        // do something...
     };
     sendbird2.events.onSystemMessageReceived = function(obj) {
         // console.log(obj);
@@ -87,18 +87,70 @@ function startSendBird2(guestId2, nickName2) {
     };
 }
 /***********************************************
- *          // END SendBird Box 1 Settings
+ *          // END SendBird Box 2 Settings
  **********************************************/
 /***********************************************
  *          // Common functions
  **********************************************/
-function newMessage2(obj) {
-    var msgList = '';
-    $('#chat2-list').append('<li>' + obj['message'] + '</li>');
+function sendMessage2() {
+    var messageToSend2 = $('#btn-input-chat2').val();
+    sendbird2.message(messageToSend2);
 }
-var scrollPositionBottom2 = function() {
-    $("#chat2-list").scrollTop($("#chat2-list")[0].scrollHeight);
-};
+function createMessage2(obj) {
+    var msg2 = '';
+    var current_name2 = 'Syed (Me)';
+    var other_user2 = 'Ralph';
+    var myDate2 = new Date( obj['ts'] );
+    if(obj['user']['guest_id'] === '1') {
+        msg2 = '' +
+        '<li class="right clearfix">' +
+        '   <span class="chat-img pull-right">' +
+            '<img src="' +
+            obj['user']['image'] +
+            '" alt="User Avatar" class="img-circle img-small">' +
+        '   </span>' +
+        '   <div class="chat-body clearfix">' +
+        '       <div class="header">' +
+        '           <small class=" text-muted">' +
+        '               <span class="glyphicon glyphicon-time"></span>' +
+                        myDate.toLocaleString() +
+        '           </small>' +
+        '           <strong class="pull-right primary-font">' +
+                        current_name2 +
+        '           </strong>' +
+        '       </div>' +
+        '           <p>' +
+                        obj['message'] +
+        '           </p>' +
+        '   </div>' +
+        '</li>';
+    } else {
+        msg2 = '' +
+        '<li class="left clearfix">' +
+        '   <span class="chat-img pull-left">' +
+            '<img src="' +
+            obj['user']['image'] +
+            '" alt="User Avatar" class="img-circle img-small">' +
+        '   </span>' +
+        '   <div class="chat-body clearfix">' +
+        '       <div class="header">' +
+        '           <strong class="primary-font">' +
+                        other_user2 +
+        '           </strong>' +
+        '           <small class="pull-right text-muted">' +
+        '               <span class="glyphicon glyphicon-time"></span>' +
+                        myDate.toLocaleString() +
+        '           </small>' +
+        '       </div>' +
+        '           <p>' +
+                        obj['message'] +
+        '           </p>' +
+        '   </div>' +
+        '</li>';  
+    }
+
+    $('#chat2-list').append(msg2);
+}
 /***********************************************
  *          // END Common functions
  **********************************************/
@@ -106,10 +158,9 @@ var scrollPositionBottom2 = function() {
  *          // Messaging functions
  **********************************************/
 function startMessagingchat2() {
-    var guestIds = ['1'];
-    sendbird2.startMessaging(guestIds, {
+    var guestIds2 = ['1'];
+    sendbird2.startMessaging(guestIds2, {
         "successFunc": function(data) {
-            // console.log(data);
             currChannelInfo = data['channel'];
             currChannelUrl = currChannelInfo['channel_url'];
             console.log("channel_url 2: " + currChannelUrl);
@@ -117,20 +168,13 @@ function startMessagingchat2() {
                 "successFunc": function(data) {
                     sendbird2.getMessageLoadMore({
                         "successFunc": function(data) {
-                            var pastMessages = data.messages;
-                            var msgList = '';
+                            var pastMessages2 = data.messages;
+                            var msgList2 = '';
                             // console.log("data: " + data);
                             // console.log("data['messages']: " + data.messages)
-                            $.each(pastMessages.reverse(), function(index, msg) {
-                                console.dir(msg);
-                                //console.log(msg.payload);
-                                //console.log(msg.payload.message);
-                                console.log('===');
-                                if (msg.cmd === 'MESG') {
-                                    $('#chat2-list').append(newMessage2(msg.payload));
-                                }
+                            $.each(pastMessages2.reverse(), function(index, msg) {
+                                createMessage2(msg.payload);
                             });
-                            scrollPositionBottom2();
                             // console.log(msgList);
                         },
                         "errorFunc": function(status, error) {

@@ -66,7 +66,7 @@
                     <div class="input-group">
                         <input id="btn-input-chat1" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat" onclick="sendMessage1()">Send</button>
+                            <button class="btn btn-warning btn-sm" id="btn-chat1" onclick="sendMessage1()">Send</button>
                         </span>
                     </div>
                 </div>
@@ -135,9 +135,9 @@
                 </div>
                 <div class="panel-footer">
                     <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <input id="btn-input-chat2" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+                            <button class="btn btn-warning btn-sm" id="btn-chat2" onclick="sendMessage2()">Send</button>
                         </span>
                     </div>
                 </div>
