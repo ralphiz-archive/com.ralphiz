@@ -159,6 +159,7 @@ return [
         /*
          * Additional Service Providers...
          */
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -209,6 +210,7 @@ return [
         /*
          * Additional Facades...
          */
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
