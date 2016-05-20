@@ -13,7 +13,13 @@
     <div class="row">
         <button type="button" class="btn btn-info" id="newMinesweeper">New Game</button>
     </div>
-
 </div>
 
+<div id="mineSweeperDiv">
+    <canvas id="mineSweeperCanvas" width="400" height="400"></canvas>
+</div>
+
+@stop
+@section('scripts')
+<script src="/js/minesweeper.js"></script>
 @stop
