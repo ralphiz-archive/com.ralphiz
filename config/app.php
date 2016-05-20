@@ -159,7 +159,6 @@ return [
         /*
          * Additional Service Providers...
          */
-        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
