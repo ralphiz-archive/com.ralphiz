@@ -209,7 +209,6 @@ return [
         /*
          * Additional Facades...
          */
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
