@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @yield('meta')
         <title>
-            ralphiz.com
+            ralphiz.com - Todo
         </title>
-        <link rel="stylesheet" type="text/css" href="/css/app.css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-        @yield('styles')
+        <link href="/css/app.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/todo-list.css" rel="stylesheet" type="text/css"/>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"></link>
     </head>
-    <body>
+    <body ng-app="todoListApp">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -24,29 +23,29 @@
                         <span class="icon-bar">
                         </span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('home') }}">
+                    <a class="navbar-brand" href="/">
                         ralphiz.com
                     </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="{{ route('home') }}">
+                            <a href="/">
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('about') }}">
+                            <a href="/about">
                                 About
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('projects') }}">
+                            <a href="/projects">
                                 Projects
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('contact' ) }}">
+                            <a href="/contact">
                                 Contact
                             </a>
                         </li>
@@ -73,15 +72,28 @@
             </div>
         </nav>
 
+        
         <div class="container">
-            @yield('content')
-        </div>
 
-        <script src="/js/SendBird.min.js"></script>
-        <script src="/js/app.js"></script>
-        <script src="/js/chat-util.js"></script>
-        <script src="/js/chat.js"></script>
-        <script src="/js/chat2.js"></script>
-        @yield('scripts')
+            <div ng-controller="mainCtrl" class="list">
+                <h1>My TODO List</h1>
+            
+                <div ng-repeat="todo in todos">         
+                    <input ng-model="todo.completed" type="checkbox"/>
+                    <label ng-hide="editing" class="editing-label">{{ todo.name }}</label>
+                    <input ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
+                
+                    <div class="actions">
+                        <a href="" ng-click="editing = !editing">Edit</a>
+                        <a href="" ng-click="helloWorld()">Save</a>
+                        <a href="" class="delete">Delete</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="/js/todo.js" type="text/javascript"></script>
     </body>
 </html>

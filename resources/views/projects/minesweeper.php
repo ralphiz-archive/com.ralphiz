@@ -5,12 +5,9 @@
             ralphiz.com - Minesweeper
         </title>
         <link href="/css/app.css" rel="stylesheet" type="text/css"/>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
-            <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js">
-            </script>
-            <script src="/js/minesweeper.js">
-            </script>
-        </link>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="/js/minesweeper.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -27,29 +24,29 @@
                         <span class="icon-bar">
                         </span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('home') }}">
+                    <a class="navbar-brand" href="/">
                         ralphiz.com
                     </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href={{ route('home') }}>
+                            <a href="/">
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a href={{ route('about') }}>
+                            <a href="/about">
                                 About
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('projects') }}">
+                            <a href="/projects">
                                 Projects
                             </a>
                         </li>
                         <li>
-                            <a href={{ route('contact' ) }}>
+                            <a href="/contact">
                                 Contact
                             </a>
                         </li>
