@@ -73,15 +73,16 @@
         </nav>
 
         
+
+        <h1>My TODO List</h1>
         <div class="container">
 
             <div ng-controller="mainCtrl" class="list">
-                <h1>My TODO List</h1>
-            
-                <div ng-repeat="todo in todos">         
+
+                <div ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in todos" class="item">
                     <input ng-model="todo.completed" type="checkbox"/>
-                    <label ng-hide="editing" class="editing-label">{{ todo.name }}</label>
-                    <input ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
+                    <label ng-hide="editing">{{ todo.name }}</label>
+                    <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
                 
                     <div class="actions">
                         <a href="" ng-click="editing = !editing">Edit</a>
