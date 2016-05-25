@@ -24,7 +24,7 @@ Route::get('/minesweeper', ['as' => 'chat', function() {
 }]);
 
 Route::get('/todo', ['as' => 'todo', function() {
-    return view('projects.todo');
+    return view('projects.todo.index');
 }]);
 
 Route::get('/4sq', ['as' => 'foursquare', 'uses' => 'FoursquareApp@index']);

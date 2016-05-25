@@ -77,24 +77,14 @@
         <h1>My TODO List</h1>
         <div class="container">
 
-            <div ng-controller="mainCtrl" class="list">
+            <todos></todos>
 
-                <div ng-class="{'editing-item': editing, 'edited': todo.edited}" ng-repeat="todo in todos" class="item">
-                    <input ng-model="todo.completed" type="checkbox"/>
-                    <label ng-hide="editing">{{ todo.name }}</label>
-                    <input ng-change="todo.edited = true" ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/>
-                
-                    <div class="actions">
-                        <a href="" ng-click="editing = !editing">Edit</a>
-                        <a href="" ng-click="helloWorld()">Save</a>
-                        <a href="" class="delete">Delete</a>
-                    </div>
-                </div>
-
-            </div>
         </div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
         <script src="/js/todo.js" type="text/javascript"></script>
+        <script src="/js/todo/controllers/main.js" type="text/javascript"></script>
+        <script src="/js/todo/services/data.js" type="text/javascript"></script>
+        <script src="/js/todo/directives/todos.js" type="text/javascript"></script>
     </body>
 </html>
