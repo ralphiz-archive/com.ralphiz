@@ -10,6 +10,9 @@ Projects page.
     <li>
         <a href="/minesweeper">Minesweeper</a> (Incomplete)
     </li>
+    <li>
+        <a href="/todo">TODO List</a>
+    </li>
 </ul>
 
 @stop

@@ -2,11 +2,11 @@
 <html>
     <head>
         <title>
-            ralphiz.com - Todo
+            ralphiz.com
         </title>
-        <link href="/css/app.css" rel="stylesheet" type="text/css"/>
         <link href="/css/todo-list.css" rel="stylesheet" type="text/css"/>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"></link>
+        <link rel="stylesheet" type="text/css" href="/css/app.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     </head>
     <body ng-app="todoListApp">
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -23,7 +23,7 @@
                         <span class="icon-bar">
                         </span>
                     </button>
-                    <a class="navbar-brand" href="/">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         ralphiz.com
                     </a>
                 </div>
@@ -72,15 +72,10 @@
             </div>
         </nav>
 
-        
-
-        <h1>My TODO List</h1>
         <div class="container">
-
-            <todos></todos>
-
+           <todos></todos>
         </div>
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
         <script src="/js/todo.js" type="text/javascript"></script>
         <script src="/js/todo/controllers/main.js" type="text/javascript"></script>
