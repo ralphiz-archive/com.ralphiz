@@ -19,7 +19,13 @@ angular.module('todoListApp').controller('mainCtrl', function($scope, dataServic
         $scope.todos.splice($scope.todos.indexOf(todo), 1);
         dataService.deleteTodo(todo);
     };
-    $scope.saveTodo = function(todo) {
-        dataService.saveTodo(todo);
+    $scope.saveTodos = function(todo) {
+        var filteredTodos = $scope.todos.filter(function(todo) {
+            if(todo.edited) {
+                return todo;
+            };
+        });
+
+        dataService.saveTodos(filteredTodos);
     };
 })

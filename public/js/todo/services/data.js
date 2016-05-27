@@ -17,8 +17,8 @@ angular.module('todoListApp')
         // other logic
     }
 
-    this.saveTodo = function(todo) {
-        console.log("The '" + todo.name + "' todo has been saved!");
+    this.saveTodos = function(todos) {        
+        console.log(todos.length + " TODO(s) have been saved!");
         // other logic
     }
 
