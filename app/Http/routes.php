@@ -20,7 +20,7 @@ Route::get('/chat', ['as' => 'chat', function() {
 }]);
 
 Route::get('/minesweeper', ['as' => 'chat', function() {
-    return view('projects.minesweeper');
+    return view('projects.minesweeper.index');
 }]);
 
 Route::get('/todo', ['as' => 'todo', function() {

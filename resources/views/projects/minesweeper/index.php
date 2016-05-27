@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html>
     <head>
         <title>
             ralphiz.com - Minesweeper
         </title>
         <link href="/css/app.css" rel="stylesheet" type="text/css"/>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"></link>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-        <script src="/js/minesweeper.js"></script>
     </head>
-    <body>
+    <body ng-app="minesweeperApp">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -94,17 +92,15 @@
                  -->
             </div>
 
-            <div ng-controller="MinesweeperController">
-                <table class="minefield">
-                    <tr ng-repeat="row in minefield.rows">
-                        <td ng-click="spot.isCovered = false" ng-repeat="spot in row.spots">
-                            <img ng-if="spot.isCovered" src="/img/Minesweeper/covered.png"/>
-                            <img ng-if="!spot.isCovered" src="/img/Minesweeper/empty.png"/>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+            
+            <minesweeper></minesweeper>
 
+
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="/js/minesweeper/minesweeper.js" type="text/javascript"></script>
+        <script src="/js/minesweeper/controllers/main.js" type="text/javascript"></script>
+        <script src="/js/minesweeper/directives/minesweeper.js" type="text/javascript"></script>
     </body>
 </html>

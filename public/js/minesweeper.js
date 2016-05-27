@@ -1,25 +1,22 @@
+angular.module('minesweeperApp', [])
+.controller('minesweeperMain', function($scope) {
 
-function createMinefield() {
-    var minefield = {};
-    minefield.rows = [];
+    $scope.minefield = createMinefield();
     
-    for(var i = 0; i < 9; i++) {
-        var row = {};
-        row.spots = [];
-        
-        for(var j = 0; j < 9; j++) {
-            var spot = {};
-            spot.isCovered = true;
-            row.spots.push(spot);
+    $scope.createMinefield() = function() {
+        var minefield = {};
+        minefield.rows = [];
+        for (var i = 0; i < 9; i++) {
+            var row = {};
+            row.spots = [];
+            for (var j = 0; j < 9; j++) {
+                var spot = {};
+                spot.isCovered = true;
+                row.spots.push(spot);
+            }
+            minefield.rows.push(row);
         }
-        
-        minefield.rows.push(row);
+        return minefield;
     }
     
-    return minefield;
-}
-
-function MinesweeperController($scope) {
-    $scope.minefield = createMinefield();
-}
-
+});
